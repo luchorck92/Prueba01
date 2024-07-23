@@ -1,0 +1,22 @@
+<!-- security.xml -->
+<odoo>
+    <data noupdate="1">
+
+        <!-- Añade un grupo si no quieres usar uno ya existente -->
+        <record id="group_product_family_manager" model="res.groups">
+            <field name="name">Gestor de Familias de Productos</field>
+        </record>
+
+        <!-- Reglas de acceso para el modelo product.family -->
+        <record id="product_family_access_user" model="ir.model.access">
+            <field name="name">product_family_access_user</field>
+            <field name="model_id" ref="model_product_family"/>
+            <field name="group_id" ref="group_product_family_manager"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+    </data>
+</odoo>
